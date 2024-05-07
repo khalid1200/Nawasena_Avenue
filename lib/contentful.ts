@@ -37,3 +37,13 @@ export const getCarousel = async () => {
     console.error(error);
   }
 };
+
+export const getVenue = async () => {
+  try {
+    const response = await getEntriesByType("venue");
+    const venue = response?.map((val) => val.fields);
+    return venue;
+  } catch (error) {
+    console.error(error);
+  }
+};

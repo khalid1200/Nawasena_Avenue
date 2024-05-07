@@ -27,7 +27,7 @@ const Navbar = () => {
   return (
     <nav
       className={`z-50 flex px-32 shadow-lg justify-between items-center fixed top-0 w-full transition-all duration-300 ${
-        isVisible ? "bg-white" : "opacity-0 -top-20"
+        isVisible ? "bg-white" : "opacity-0 -top-32"
       }`}
     >
       <div className="py-2">

@@ -1,20 +1,18 @@
-import { getFacilities, getCarousel } from "./contentful";
+import { getFacilities, getCarousel, getVenue } from "./contentful";
 
 export const fetchFacilities = async () => {
   try {
     const response = await getFacilities();
+
     if (response) {
-      const newResponse = response.map((facility: any) => ({
-        facility: facility.facility,
-        slug: facility.slug,
-        description: facility.description,
-        thumbnailUrl: facility.thumbnail.fields.file.url.startsWith("http")
-          ? facility.thumbnail.fields.file.url
-          : "https:" + facility.thumbnail.fields.file.url,
-        denahUrl: facility.denah.fields.file.url.startsWith("http")
-          ? facility.denah.fields.file.url
-          : "https:" + facility.denah.fields.file.url,
-        images: facility.images.map((image: any) => ({
+      const newResponse = response.map((venue: any) => ({
+        venue: venue.venue,
+        slug: venue.slug,
+        description: venue.shortDescription,
+        thumbnailUrl: venue.thumbnail.fields.file.url.startsWith("http")
+          ? venue.thumbnail.fields.file.url
+          : "https:" + venue.thumbnail.fields.file.url,
+        images: venue.images.map((image: any) => ({
           imageUrl: image.fields.file.url.startsWith("http")
             ? image.fields.file.url
             : "https:" + image.fields.file.url,
@@ -33,7 +31,6 @@ export const fetchCarousel = async () => {
     const response = await getCarousel();
     if (response) {
       const newResponse = response.map((item: any) => {
-        // Check if item.image is an object and has the required nested properties
         const imageUrl =
           item.image &&
           item.image.fields &&
@@ -52,6 +49,33 @@ export const fetchCarousel = async () => {
           description: item.description,
         };
       });
+
+      return newResponse;
+    }
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const fetchVenue = async () => {
+  try {
+    const response = await getVenue();
+
+    if (response) {
+      const newResponse = response.map((venue: any) => ({
+        venue: venue.venue,
+        slug: venue.slug,
+        description: venue.shortDescription,
+        thumbnailUrl: venue.thumbnail.fields.file.url.startsWith("http")
+          ? venue.thumbnail.fields.file.url
+          : "https:" + venue.thumbnail.fields.file.url,
+        features: venue.features,
+        images: venue.images.map((image: any) => ({
+          imageUrl: image.fields.file.url.startsWith("http")
+            ? image.fields.file.url
+            : "https:" + image.fields.file.url,
+        })),
+      }));
 
       return newResponse;
     }

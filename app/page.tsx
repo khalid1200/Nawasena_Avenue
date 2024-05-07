@@ -1,6 +1,6 @@
 "use client";
 
-import { fetchCarousel } from "@/lib/data";
+import { fetchCarousel, fetchVenue } from "@/lib/data";
 import { useEffect, useState } from "react";
 import ErrorPage from "@/components/errorPage/ErrorPage";
 import Carousel from "@/components/shared/Carousel";
@@ -11,12 +11,28 @@ import Service from "@/views/Services";
 export default function Home() {
   const [loading, setLoading] = useState<boolean>(true);
   const [carouselItem, setCarouselItem] = useState<any[] | undefined>([]);
+  const [venue, setVenue] = useState<any[] | undefined>([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const carouselData = await fetchCarousel();
         setCarouselItem(carouselData);
+      } catch (error) {
+        console.error("Error fetching carousel data:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const venue = await fetchVenue();
+        setVenue(venue);
       } catch (error) {
         console.error("Error fetching carousel data:", error);
       } finally {
@@ -39,7 +55,7 @@ export default function Home() {
     <main className="w-screen">
       <Carousel articles={carouselItem} />
       <Welcoming />
-      <VenueList />
+      <VenueList venue={venue} />
       <Service />
     </main>
   );
