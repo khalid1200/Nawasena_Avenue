@@ -39,6 +39,7 @@ const Facilities = () => {
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti, ab.
         Inventore cupiditate alias quasi delectus explicabo hic ipsam ratione
         pariatur iusto vitae quis saepe eveniet rem nam, neque velit doloremque!
+        <span className="text-rose-500">[4]</span>
       </h1>
       <div className="grid lg:grid-cols-2 gap-4 lg:px-32 px-4">
         {facilities && facilities.length > 0 ? (

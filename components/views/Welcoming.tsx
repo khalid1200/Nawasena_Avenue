@@ -23,6 +23,7 @@ const Welcoming = () => {
         <p className="lg:text-lg  ">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil velit
           omnis dolorum repellat? Accusamus, nihil exercitationem vero
+          <span className="text-rose-500">[1]</span>
         </p>
       </div>
       <div className="grid grid-cols-2 gap-4 mx-4  mt-8 ">

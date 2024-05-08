@@ -50,6 +50,7 @@ const InvestorRelation = () => {
               Necessitatibus repudiandae laborum consectetur iste autem expedita
               aspernatur! Nam odio quidem deserunt dolor possimus id sapiente
               est laudantium, corporis ipsum deleniti. Quis.
+              <span className="text-rose-500">[5]</span>
             </p>
           </section>
           <section>

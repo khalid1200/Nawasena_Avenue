@@ -13,7 +13,7 @@ const Footer = () => {
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet ab
             vero facilis vel animi perferendis qui amet doloremque veniam.
             Accusamus aut commodi fugiat nulla asperiores similique amet, iusto
-            quae est.
+            quae est. <span className="text-rose-500">[2]</span>
           </p>
         </div>
         <div className="lg:w-1/2 lg:mx-auto">
@@ -49,7 +49,8 @@ const Footer = () => {
       </div>
       <div className="bg-[#1E1E1E]">
         <h1 className="text-center py-8 lg:px-0 px-4">
-          © Copyright 2024 by PT Sinergi Megah Internusa. All Rights Reserved.
+          © Copyright 2024 by PT Sinergi Megah Internusa. All Rights Reserved.{" "}
+          <span className="text-rose-500">[3]</span>
         </h1>
       </div>
     </main>
