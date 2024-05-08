@@ -6,7 +6,7 @@ import { BsFillTelephoneFill } from "react-icons/bs";
 const Footer = () => {
   return (
     <main className="text-white mt-16">
-      <div className="grid grid-cols-3  bg-areng  px-32 py-16">
+      <div className="grid lg:grid-cols-3 lg:space-y-0 space-y-8 bg-areng  lg:px-32 px-4 py-16">
         <div>
           <h1 className="text-3xl">About Us</h1>
           <p className="text-white/80 mt-4">
@@ -16,7 +16,7 @@ const Footer = () => {
             quae est.
           </p>
         </div>
-        <div className="w-1/2 mx-auto">
+        <div className="lg:w-1/2 lg:mx-auto">
           <h1 className="text-3xl">Explore</h1>
           <ul className="flex flex-col space-y-2 text-xl mt-4 text-white/80">
             {nav_link.map((link, index: number) => (
@@ -28,16 +28,16 @@ const Footer = () => {
         </div>
         <div>
           <h1 className="text-3xl">Contact</h1>
-          <p className="flex items-center mt-4 text-lg text-white/80">
-            <span className="text-2xl mr-2 text-white">
+          <p className="flex items-center mt-4 lg:text-lg text-white/80">
+            <span className="lg:text-2xl mr-2 text-white">
               <FaMapPin />
             </span>
             Jl. Padjajaran No. 409, Ring Road Utara, Kecamatan Depok, Kabupaten
             Sleman, DI Yogyakarta, 55281
           </p>
 
-          <p className="flex items-center my-4 text-2xl text-white/80">
-            <span className="text-2xl mr-2 text-white">
+          <p className="flex items-center my-4 lg:text-2xl text-white/80">
+            <span className="lg:text-2xl mr-2 text-white">
               <BsFillTelephoneFill />
             </span>
             0274 2924777
@@ -48,7 +48,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="bg-[#1E1E1E]">
-        <h1 className="text-center py-8">
+        <h1 className="text-center py-8 lg:px-0 px-4">
           © Copyright 2024 by PT Sinergi Megah Internusa. All Rights Reserved.
         </h1>
       </div>

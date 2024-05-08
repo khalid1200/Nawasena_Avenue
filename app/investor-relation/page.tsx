@@ -9,8 +9,8 @@ import Loader from "@/components/shared/Loader";
 
 const InvestorRelation = () => {
   const [loading, setLoading] = useState<boolean>(true);
-  const [visi, setVisi] = useState<any | undefined>({}); // Change type to any
-  const [misi, setMisi] = useState<any | undefined>({}); // Change type to any
+  const [visi, setVisi] = useState<any | undefined>({});
+  const [misi, setMisi] = useState<any | undefined>({});
 
   useEffect(() => {
     const fetchData = async () => {
@@ -41,8 +41,8 @@ const InvestorRelation = () => {
   return (
     <div>
       <Banner mode="investor relation" title="Investor Relation" />
-      <div className="px-32 py-12">
-        <div className="grid grid-cols-2 space-x-8">
+      <div className="lg:px-32 px-4 py-12">
+        <div className="grid lg:grid-cols-2 lg:space-x-8">
           <section>
             <h1 className="font-semibold text-3xl">About Nawasena Avenue</h1>
             <p className="my-6">
@@ -65,7 +65,7 @@ const InvestorRelation = () => {
             ))}
           </section>
         </div>
-        <div className="grid grid-cols-2 my-4 mt-12 space-x-8">
+        <div className="grid lg:grid-cols-2 my-4 mt-12 lg:space-x-8 lg:space-y-0 space-y-4">
           <section>
             <h1 className="font-semibold text-3xl">Vision</h1>
             <ul>

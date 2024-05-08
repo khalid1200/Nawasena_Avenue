@@ -25,30 +25,24 @@ const Banner = (props: BannerProps) => {
   return (
     <main className="relative block mx-auto shadow-xl ">
       <div className="relative w-full h-96 overflow-hidden">
-        <Image
-          src={imageToUse}
-          alt={mode}
-          layout="fill"
-          objectFit="cover"
-          className="rounded-lg"
-        />
+        <Image src={imageToUse} alt={mode} layout="fill" objectFit="cover" />
         <div className="absolute inset-0 bg-black opacity-50"></div>
       </div>
-      <div className="absolute z-40 top-0 left-0 right-0 p-2 bg-strong-black bg-opacity-75 text-2xl px-32 pb-24 font-bold text-white">
+      <div className="absolute z-40 top-0 left-0 right-0 p-2 bg-strong-black bg-opacity-75 text-2xl lg:px-32 pb-24 font-bold text-white">
         <div className="flex items-center justify-between">
           <div className="py-2">
             <Image src={Logo} alt="logo" width={80} />
           </div>
           <ul className="flex space-x-4 text-xl">
             {nav_link.map((link, index: number) => (
-              <li key={index} className="hover:text-primary">
+              <li key={index} className="lg:block hidden hover:text-primary">
                 <Link href={link.href}>{link.to}</Link>
               </li>
             ))}
           </ul>
         </div>
       </div>
-      <h1 className="absolute bottom-0 left-0 right-0 p-2 bg-strong-black bg-opacity-75 text-6xl px-32 pb-24 font-bold text-white">
+      <h1 className="absolute bottom-0 left-0 right-0 p-2 bg-strong-black bg-opacity-75 lg:text-6xl text-4xl lg:px-32 px-4 lg:pb-24 pb-12 font-bold text-white">
         {title}
       </h1>
     </main>

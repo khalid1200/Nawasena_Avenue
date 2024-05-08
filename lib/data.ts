@@ -13,7 +13,7 @@ export const fetchFacilities = async () => {
 
     if (response) {
       const newResponse = response.map((venue: any) => ({
-        venue: venue.venue,
+        facility: venue.facility,
         slug: venue.slug,
         description: venue.shortDescription,
         thumbnailUrl: venue.thumbnail.fields.file.url.startsWith("http")

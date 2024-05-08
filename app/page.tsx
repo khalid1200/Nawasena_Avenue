@@ -4,10 +4,10 @@ import { fetchCarousel, fetchVenue } from "@/lib/data";
 import { useEffect, useState } from "react";
 import ErrorPage from "@/components/errorPage/ErrorPage";
 import Carousel from "@/components/shared/Carousel";
-import Welcoming from "@/views/Welcoming";
-import VenueList from "@/views/VenueList";
-import Service from "@/views/Services";
-import Testimonials from "@/views/Testimonials";
+import Welcoming from "@/components/views/Welcoming";
+import VenueList from "@/components/views/VenueList";
+import Service from "@/components/views/Services";
+import Testimonials from "@/components/views/Testimonials";
 import Loader from "@/components/shared/Loader";
 
 export default function Home() {

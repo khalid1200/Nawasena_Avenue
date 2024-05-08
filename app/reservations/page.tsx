@@ -15,8 +15,8 @@ const Reservation = () => {
   return (
     <div>
       <Banner mode="reservation" title="Reservation" />
-      <main className="mx-32 ">
-        <div className="grid grid-cols-2 my-32  justify-between">
+      <main className="lg:px-32 px-4 ">
+        <div className="grid lg:grid-cols-2 my-32  justify-between">
           <section>
             <h1 className="text-3xl font-medium">Nawasena Avenue</h1>
             <h2 className="text-2xl font-semibold">
