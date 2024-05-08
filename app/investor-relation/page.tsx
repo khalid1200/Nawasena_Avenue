@@ -71,7 +71,7 @@ const InvestorRelation = () => {
             <ul>
               {visi &&
                 visi.map((val: any, id: number) => (
-                  <li className="flex text-lg">
+                  <li className="flex text-lg" key={id}>
                     <span className="text-primary mr-2">{id + 1}.</span>
                     {val.visi}
                   </li>
@@ -83,7 +83,7 @@ const InvestorRelation = () => {
             <ul>
               {misi &&
                 misi.map((val: any, id: number) => (
-                  <li className="flex text-lg">
+                  <li className="flex text-lg" key={id}>
                     <span className="text-primary mr-2">{id + 1}.</span>
                     {val.misi}
                   </li>
