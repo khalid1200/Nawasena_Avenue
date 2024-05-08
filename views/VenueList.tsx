@@ -1,8 +1,9 @@
 import Card from "@/components/shared/Card";
+import Loader from "@/components/shared/Loader";
 
 const VenueList = ({ venue }: any) => {
   if (!venue) {
-    return <h1>Loading...</h1>;
+    return <Loader></Loader>;
   }
 
   return (

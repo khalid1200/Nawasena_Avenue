@@ -13,7 +13,7 @@ const Navbar = () => {
     const handleScroll = () => {
       const scrollTop =
         window.pageYOffset || document.documentElement.scrollTop;
-      const isVisible = scrollTop > 0;
+      const isVisible = scrollTop > 100;
       setIsVisible(isVisible);
     };
 
@@ -26,8 +26,8 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`z-50 flex px-32 shadow-lg justify-between items-center fixed top-0 w-full transition-all duration-300 ${
-        isVisible ? "bg-white" : "opacity-0 -top-32"
+      className={`z-30 flex px-32 shadow-lg justify-between items-center fixed top-0 w-full transition-all duration-300 ${
+        isVisible ? "bg-white" : "opacity-0 -top-32 z-0"
       }`}
     >
       <div className="py-2">

@@ -55,7 +55,7 @@ const Carousel = ({ articles }: any) => {
               >
                 <div className="absolute inset-0 bg-black opacity-50"></div>
 
-                <div className="flex items-center justify-between px-32 text-white font-semibold relative z-10 mt-4">
+                <div className="flex items-center justify-between px-32 text-white font-semibold relative z-40 mt-4">
                   <div className="py-2">
                     <Image src={Logo} alt="logo" width={80} />
                   </div>

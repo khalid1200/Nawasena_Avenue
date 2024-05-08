@@ -4,6 +4,7 @@ import Banner from "@/components/shared/Banner";
 import Card from "@/components/shared/Card";
 import { fetchFacilities } from "@/lib/data";
 import { useEffect, useState } from "react";
+import Loader from "@/components/shared/Loader";
 
 const Facilities = () => {
   const [loading, setLoading] = useState<boolean>(true);
@@ -24,7 +25,7 @@ const Facilities = () => {
   }, []);
 
   if (loading) {
-    return <h1>Loading...</h1>;
+    return <Loader></Loader>;
   }
 
   return (

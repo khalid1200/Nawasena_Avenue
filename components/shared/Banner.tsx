@@ -34,7 +34,7 @@ const Banner = (props: BannerProps) => {
         />
         <div className="absolute inset-0 bg-black opacity-50"></div>
       </div>
-      <div className="absolute top-0 left-0 right-0 p-2 bg-strong-black bg-opacity-75 text-2xl px-32 pb-24 font-bold text-white">
+      <div className="absolute z-40 top-0 left-0 right-0 p-2 bg-strong-black bg-opacity-75 text-2xl px-32 pb-24 font-bold text-white">
         <div className="flex items-center justify-between">
           <div className="py-2">
             <Image src={Logo} alt="logo" width={80} />

@@ -7,6 +7,8 @@ import Carousel from "@/components/shared/Carousel";
 import Welcoming from "@/views/Welcoming";
 import VenueList from "@/views/VenueList";
 import Service from "@/views/Services";
+import Testimonials from "@/views/Testimonials";
+import Loader from "@/components/shared/Loader";
 
 export default function Home() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -44,7 +46,7 @@ export default function Home() {
   }, []);
 
   if (loading) {
-    return <h1>Loading...</h1>;
+    return <Loader></Loader>;
   }
 
   if (!carouselItem || carouselItem.length === 0) {
@@ -56,6 +58,7 @@ export default function Home() {
       <Carousel articles={carouselItem} />
       <Welcoming />
       <VenueList venue={venue} />
+      <Testimonials />
       <Service />
     </main>
   );

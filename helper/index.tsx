@@ -51,7 +51,7 @@ export const contacts = [
   },
   {
     href: "admin@lafayettehotel-yogyakarta.com",
-    title: "Other facilities and services",
+    title: "Email",
     icon: <CiMail />,
   },
   {
@@ -91,5 +91,18 @@ export const services_data: Service[] = [
     icon: <IoMdWine />,
     title: "Minibar",
     desc: "Parking for Nawasena's guests is available at the front, west side and basement area.",
+  },
+];
+
+export const contact_us = [
+  {
+    href: "+6281385777884",
+    title: "Front Office",
+    icon: <FaWhatsapp />,
+  },
+  {
+    href: "admin@lafayettehotel-yogyakarta.com",
+    title: "Email",
+    icon: <CiMail />,
   },
 ];

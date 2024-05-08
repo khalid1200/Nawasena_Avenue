@@ -47,3 +47,33 @@ export const getVenue = async () => {
     console.error(error);
   }
 };
+
+export const getFaq = async () => {
+  try {
+    const response = await getEntriesByType("faq");
+    const FaqItems = response?.map((val) => val.fields);
+    return FaqItems;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const getVisi = async () => {
+  try {
+    const response = await getEntriesByType("visi");
+    const visi = response?.map((val) => val.fields);
+    return visi;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const getMisi = async () => {
+  try {
+    const response = await getEntriesByType("misi");
+    const misi = response?.map((val) => val.fields);
+    return misi;
+  } catch (error) {
+    console.error(error);
+  }
+};

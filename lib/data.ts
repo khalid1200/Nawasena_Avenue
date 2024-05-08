@@ -1,4 +1,11 @@
-import { getFacilities, getCarousel, getVenue } from "./contentful";
+import {
+  getFacilities,
+  getCarousel,
+  getVenue,
+  getFaq,
+  getVisi,
+  getMisi,
+} from "./contentful";
 
 export const fetchFacilities = async () => {
   try {
@@ -60,7 +67,6 @@ export const fetchCarousel = async () => {
 export const fetchVenue = async () => {
   try {
     const response = await getVenue();
-
     if (response) {
       const newResponse = response.map((venue: any) => ({
         venue: venue.venue,
@@ -77,6 +83,49 @@ export const fetchVenue = async () => {
         })),
       }));
 
+      return newResponse;
+    }
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const fetchFaq = async () => {
+  try {
+    const response = await getFaq();
+    if (response) {
+      const newResponse = response.map((val: any) => ({
+        question: val.question,
+        answer: val.answer,
+      }));
+      return newResponse;
+    }
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const fetchVisi = async () => {
+  try {
+    const response = await getVisi();
+    if (response) {
+      const newResponse = response.map((val: any) => ({
+        visi: val.visi,
+      }));
+      return newResponse;
+    }
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const fetchMisi = async () => {
+  try {
+    const response = await getMisi();
+    if (response) {
+      const newResponse = response.map((val: any) => ({
+        misi: val.misi,
+      }));
       return newResponse;
     }
   } catch (error) {
