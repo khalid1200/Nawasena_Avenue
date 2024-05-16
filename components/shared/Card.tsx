@@ -4,6 +4,7 @@ import Image from "next/image";
 import { ReactNode, useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { useRouter } from "next/navigation";
 
 type FeatureCardProps = {
   mode: "feature";
@@ -23,9 +24,16 @@ type VenueCardProps = {
   mode: "venue";
   title: string;
   image: string;
+  slug: string;
 };
 
 const Card = (props: FeatureCardProps | ServiceCardProps | VenueCardProps) => {
+  const router = useRouter();
+
+  const redirectToslug = (slug: string) => {
+    router.push(`/venue/${slug}`);
+  };
+
   useEffect(() => {
     AOS.init();
   }, []);
@@ -51,9 +59,6 @@ const Card = (props: FeatureCardProps | ServiceCardProps | VenueCardProps) => {
         <h3 className="z-10 mt-3 text-3xl font-bold text-white">
           {props.title}
         </h3>
-        <div className="z-10 flex justify-end items-center gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">
-          <button className="hover:text-primary">Detail</button>
-        </div>
       </div>
     );
   }
@@ -89,7 +94,12 @@ const Card = (props: FeatureCardProps | ServiceCardProps | VenueCardProps) => {
           {props.title}
         </h3>
         <div className="z-10 flex justify-end items-center gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">
-          <button className="hover:text-primary">Detail</button>
+          <button
+            className="hover:text-primary"
+            onClick={() => redirectToslug(props.slug)}
+          >
+            Detail
+          </button>
         </div>
       </div>
     );

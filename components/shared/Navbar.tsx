@@ -30,7 +30,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav>
+    <nav className="w-sceen">
       <div
         className={`z-30 flex lg:px-32 px-4  shadow-lg justify-between items-center fixed top-0 w-full transition-all duration-300 ${
           isVisible ? "bg-white" : "hidden"

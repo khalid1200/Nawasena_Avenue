@@ -9,6 +9,9 @@ import VenueList from "@/components/views/VenueList";
 import Service from "@/components/views/Services";
 import Testimonials from "@/components/views/Testimonials";
 import Loader from "@/components/shared/Loader";
+import { FaWhatsapp } from "react-icons/fa";
+import { CiFacebook } from "react-icons/ci";
+import { CiInstagram } from "react-icons/ci";
 
 export default function Home() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -55,6 +58,11 @@ export default function Home() {
 
   return (
     <main className="w-screen">
+      <div className="fixed left-0 h-screen flex flex-col justify-end bottom-4 z-50 space-y-4 p-4 text-primary">
+        <FaWhatsapp className="text-2xl hover:text-black transition duration-200" />
+        <CiFacebook className="text-2xl hover:text-black transition duration-200" />
+        <CiInstagram className="text-2xl hover:text-black transition duration-200" />
+      </div>
       <Carousel articles={carouselItem} />
       <Welcoming />
       <VenueList venue={venue} />

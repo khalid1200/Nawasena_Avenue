@@ -5,6 +5,7 @@ import {
   getFaq,
   getVisi,
   getMisi,
+  getVenueBySlug,
 } from "./contentful";
 
 export const fetchFacilities = async () => {
@@ -130,5 +131,35 @@ export const fetchMisi = async () => {
     }
   } catch (error) {
     console.error(error);
+  }
+};
+
+export const fetchVenueBySlug = async (slug: any) => {
+  try {
+    const response: any = await getVenueBySlug(slug);
+    console.log(response);
+
+    if (response) {
+      const formattedVenue = {
+        venue: response.fields.venue,
+        slug: response.fields.slug,
+        description: response.fields.shortDescription,
+        thumbnailUrl: response.fields.thumbnail.fields.file.url.startsWith(
+          "http"
+        )
+          ? response.fields.thumbnail.fields.file.url
+          : "https:" + response.fields.thumbnail.fields.file.url,
+        features: response.fields.features,
+        images: response.fields.images.map((image: any) => ({
+          imageUrl: image.fields.file.url.startsWith("http")
+            ? image.fields.file.url
+            : "https:" + image.fields.file.url,
+        })),
+      };
+      return formattedVenue;
+    }
+  } catch (error) {
+    console.error(error);
+    throw error;
   }
 };

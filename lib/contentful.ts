@@ -48,6 +48,22 @@ export const getVenue = async () => {
   }
 };
 
+export const getVenueBySlug = async (slug: any) => {
+  try {
+    const response = await getEntriesByType("venue");
+    if (!response) {
+      throw new Error("Failed to fetch data from Contentful");
+    }
+    const venue = response.find((entry) => entry.fields.slug === slug);
+    console.log(venue);
+
+    return venue;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+
 export const getFaq = async () => {
   try {
     const response = await getEntriesByType("faq");

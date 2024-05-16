@@ -11,8 +11,14 @@ type BannerProps = {
   title: string;
 };
 
-const Banner = (props: BannerProps) => {
-  const { mode, title } = props;
+type DetailProps = {
+  mode: "detail";
+  image: string;
+  title: string;
+};
+
+const Banner = (props: BannerProps | DetailProps) => {
+  const { mode } = props;
 
   const imageMap: { [key: string]: StaticImageData } = {
     facilities: FacilitiesImage,
@@ -22,31 +28,63 @@ const Banner = (props: BannerProps) => {
 
   const imageToUse = imageMap[mode.toLowerCase()];
 
-  return (
-    <main className="relative block mx-auto shadow-xl ">
-      <div className="relative w-full h-96 overflow-hidden">
-        <Image src={imageToUse} alt={mode} layout="fill" objectFit="cover" />
-        <div className="absolute inset-0 bg-black opacity-50"></div>
-      </div>
-      <div className="absolute z-40 top-0 left-0 right-0 p-2 bg-strong-black bg-opacity-75 text-2xl lg:px-32 pb-24 font-bold text-white">
-        <div className="flex items-center justify-between">
-          <div className="py-2">
-            <Image src={Logo} alt="logo" width={80} />
-          </div>
-          <ul className="flex space-x-4 text-xl">
-            {nav_link.map((link, index: number) => (
-              <li key={index} className="lg:block hidden hover:text-primary">
-                <Link href={link.href}>{link.to}</Link>
-              </li>
-            ))}
-          </ul>
+  if (mode !== "detail") {
+    return (
+      <main className="relative block mx-auto shadow-xl ">
+        <div className="relative w-full h-96 overflow-hidden">
+          <Image src={imageToUse} alt={mode} layout="fill" objectFit="cover" />
+          <div className="absolute inset-0 bg-black opacity-50"></div>
         </div>
-      </div>
-      <h1 className="absolute bottom-0 left-0 right-0 p-2 bg-strong-black bg-opacity-75 lg:text-6xl text-4xl lg:px-32 px-4 lg:pb-24 pb-12 font-bold text-white">
-        {title}
-      </h1>
-    </main>
-  );
+        <div className="absolute z-40 top-0 left-0 right-0 p-2 bg-strong-black bg-opacity-75 text-2xl lg:px-32 pb-24 font-bold text-white">
+          <div className="flex items-center justify-between">
+            <div className="py-2">
+              <Image src={Logo} alt="logo" width={80} />
+            </div>
+            <ul className="flex space-x-4 text-xl">
+              {nav_link.map((link, index: number) => (
+                <li key={index} className="lg:block hidden hover:text-primary">
+                  <Link href={link.href}>{link.to}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <h1 className="absolute bottom-0 left-0 right-0 p-2 bg-strong-black bg-opacity-75 lg:text-6xl text-4xl lg:px-32 px-4 lg:pb-24 pb-12 font-bold text-white">
+          {props.title}
+        </h1>
+      </main>
+    );
+  }
+  if (mode === "detail") {
+    return (
+      <main className="relative block mx-auto shadow-xl ">
+        <div className="relative w-full h-[80vh] overflow-hidden">
+          <Image src={props.image} alt={mode} layout="fill" objectFit="cover" />
+          <div className="absolute inset-0 bg-black opacity-50"></div>
+        </div>
+        <div className="absolute z-40 top-0 left-0 right-0 p-2 bg-strong-black bg-opacity-75 h-full text-2xl lg:px-32 pb-24 font-bold text-white">
+          <div className="flex items-center justify-between">
+            <div className="py-2">
+              <Image src={Logo} alt="logo" width={80} />
+            </div>
+            <ul className="flex space-x-4 text-xl">
+              {nav_link.map((link, index: number) => (
+                <li key={index} className="lg:block hidden hover:text-primary">
+                  <Link href={link.href}>{link.to}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <h1
+          data-aos="zoom-out"
+          className="md:hidden absolute bottom-24 left-0 right-0 p-2 bg-strong-black bg-opacity-75 lg:text-6xl text-4xl lg:px-32 text-center px-4 lg:pb-24 pb-12 font-bold text-white"
+        >
+          {props.title}
+        </h1>
+      </main>
+    );
+  }
 };
 
 export default Banner;

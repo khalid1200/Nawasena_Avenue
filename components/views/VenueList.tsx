@@ -21,6 +21,7 @@ const VenueList = ({ venue }: any) => {
             mode="venue"
             image={venueItem.thumbnailUrl}
             title={venueItem.venue}
+            slug={venueItem.slug}
           />
         ))}
       </div>
